@@ -1,2 +1,0 @@
-# JavascriptSorting
-Created with CodeSandbox

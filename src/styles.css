@@ -1,0 +1,44 @@
+.App {
+  font-family: sans-serif;
+  text-align: justify;
+}
+
+.input {
+  height: 20px;
+  font-size: 15px;
+  padding: 5px;
+  margin: 15px 5px;
+}
+
+.input__array {
+  width: 130px;
+}
+
+.input__number {
+  width: 30px;
+}
+
+.result {
+  text-align: left;
+  margin-top: 25px;
+}
+
+fieldset {
+  border: none;
+}
+
+button {
+  padding: 5px;
+  font-size: 15px;
+  width: 80px;
+  margin: 0, auto;
+  cursor: pointer;
+  box-shadow: 1px 1px #888888;
+  border-radius: 4px;
+  border-color: #4caf50;
+  color: green;
+}
+
+.button {
+  text-align: center;
+}
