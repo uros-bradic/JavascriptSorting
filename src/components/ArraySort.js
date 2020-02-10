@@ -38,8 +38,8 @@ export default class ArraySort extends React.Component {
   };
 
   quickSort = arr => {
+    if (arr.length <= 1) return arr;
     const array = [...arr];
-    if (array.length <= 1) return array;
     const pivot = array[array.length - 1];
     let smallerThanPivot = [];
     let largerThanPivot = [];
@@ -73,13 +73,11 @@ export default class ArraySort extends React.Component {
 
   mergeArrays = (arr1, arr2) => {
     const array = [];
-    while (arr1.length !== 0 && arr1.length !== 0) {
+    while (arr1.length && arr1.length) {
       if (arr1[0] < arr2[0]) {
-        array.push(arr1[0]);
-        arr1.shift();
+        array.push(arr1.shift());
       } else {
-        array.push(arr2[0]);
-        arr2.shift();
+        array.push(arr2.shift());
       }
     }
     return array.concat(arr1, arr2);
