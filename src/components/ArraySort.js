@@ -86,7 +86,7 @@ export default class ArraySort extends React.Component {
   };
 
   mergeSort = arr => {
-    if (arr.length >= 1) return arr;
+    if (arr.length <= 1) return arr;
     const array = [...arr];
     const arrayMiddleIndex = Math.floor(array.length / 2);
     const leftArrayPart = array.slice(0, arrayMiddleIndex);
