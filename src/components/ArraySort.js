@@ -71,6 +71,33 @@ export default class ArraySort extends React.Component {
     return array;
   };
 
+  mergeArrays = (arr1, arr2) => {
+    const array = [];
+    while (arr1.length !== 0 && arr1.length !== 0) {
+      if (arr1[0] < arr2[0]) {
+        array.push(arr1[0]);
+        arr1.shift();
+      } else {
+        array.push(arr2[0]);
+        arr2.shift();
+      }
+    }
+    return array.concat(arr1, arr2);
+  };
+
+  mergeSort = arr => {
+    if (arr.length >= 1) return arr;
+    const array = [...arr];
+    const arrayMiddleIndex = Math.floor(array.length / 2);
+    const leftArrayPart = array.slice(0, arrayMiddleIndex);
+    const rightArrayPart = array.slice(arrayMiddleIndex, array.length);
+
+    return this.mergeArrays(
+      this.mergeSort(leftArrayPart),
+      this.mergeSort(rightArrayPart)
+    );
+  };
+
   handleClick = e => {
     e.preventDefault();
     if (
@@ -91,6 +118,7 @@ export default class ArraySort extends React.Component {
     console.log("Bubble sort:" + this.bubbleSort(result));
     console.log("Quick sort:" + this.quickSort(result));
     console.log("Insertion sort:" + this.insertionSort(result));
+    console.log("Merge sort:" + this.mergeSort(result));
 
     const indexOfInsertedNumber = sortedArray.indexOf(
       Number(this.state.numberToInsert)
@@ -117,9 +145,7 @@ export default class ArraySort extends React.Component {
       <div className="result">
         <form>
           <fieldset>
-            <label>
-              Please enter array of integers separated with commmas:
-            </label>
+            <label>Please enter array of integers separated with commas:</label>
             <input
               className="input input__array"
               type="text"
